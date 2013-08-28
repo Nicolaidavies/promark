@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>ProMark by Nicolai Davies</title>
+</head>
+<body
+<h1>Input text</h1>
+<div class="content">
+    <form action="/" method="post" style="float:left; margin-right:2em;">
+        <textarea autofocus rows="40" cols="100" name="input_text"><%= @input_text %></textarea>
+        <br>
+        <input type="submit">
+    </form>
+    <div class="output_text" style="float:left;">
+        <textarea rows="40" cols="20" onclick="this.select();"><%= @output_text %></textarea>
+    </div>
+    <div class="intructions" style="float:left; margin-left:5em;">
+        <h1>Instructions</h1>
+        <p><b>ProMark (Proshop Markup) by Nicolai Davies</b></p>
+        <p>Every line that does not end with a '.' will <br>be treated as a header and will be bold.
+        
+        <br><br>
+        If a line does end with a '.' nothing will be done to it.
+        </p>
+    </div>
+</div>
+</body>
