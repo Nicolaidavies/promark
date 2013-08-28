@@ -42,7 +42,6 @@ post '/' do
         line = line + "<br>" #add extra whitespace that was removed by rstrip
         @output_text ||= "" #set output to an empty string if it has not been set
         @output_text = @output_text + line # add line to string and return it
-        counter += 1
     end
     @output_text.strip! 
     erb :index
