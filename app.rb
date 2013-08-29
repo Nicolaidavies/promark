@@ -26,20 +26,17 @@ end
 
 post '/' do
     @input_text = params[:input_text] # read input from user
-#    counter = 1 
+    counter = 1 
     @input_text.each_line do |line|
         line = line.strip #strip whitespace and newline
- #       if counter > 1
-        line = '<br><br><b>' + line + '</b><br>' unless line.end_with?('.') # wrap line in bold tags if line does not end with '.'
-  #      else
-   #         line = '<b>' + line ' </b><br>' unless line.end_with?('.')
-    #    end
+        if counter == 1
+            line = '<b>' + line + '</b><br>' unless line.end_with?('.') # wrap line in bold tags if line does not end with '.'
+        else
+            line = '<br><br><b>' + line + '</b><br>' unless line.end_with?('.')
+        end
         line = " " if line == "<br><br><b></b><br>" #remove bold tags, if the line is empty before entered
-        #line = line + "<br>" #add extra whitespace that was removed by rstrip
-       
-        line = '<br><b>' + line + '</b>' unless line.end_with?('.') # wrap line in bold tags if line does not end with '.'
+        counter += 1
         line = " " if line == "<b></b>" #remove bold tags, if the line is empty before entered
-        line = line + "<br>" #add extra whitespace that was removed by rstrip
         @output_text ||= "" #set output to an empty string if it has not been set
         @output_text = @output_text + line # add line to string and return it
     end
